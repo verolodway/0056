@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 /**
  * Store details of club memberships.
  * 
@@ -6,15 +7,18 @@
  */
 public class Club
 {
-    // Define any necessary fields here ...
+    // Variable que guarda los miembros que hay en el equipo
+    private ArrayList<Membership> miembro;
+    // Variable que cuenta el numero de miembros que hay en el equipo
+    private int numeroDeMiembros;
     
     /**
      * Constructor for objects of class Club
      */
     public Club()
     {
-        // Initialise any fields here ...
-        
+        miembro = new ArrayList<Membership>();
+        int numeroDeMiembros = 0;
     }
 
     /**
@@ -23,6 +27,8 @@ public class Club
      */
     public void join(Membership member)
     {
+        miembro.add(new Membership(member.getName(), member.getMonth(),member.getYear()));
+        numeroDeMiembros++;
     }
 
     /**
@@ -31,6 +37,6 @@ public class Club
      */
     public int numberOfMembers()
     {
-        return 0;
+        return numeroDeMiembros;
     }
 }
