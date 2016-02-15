@@ -71,15 +71,18 @@ public class Club
      * @param year El año en el que estamos interesados
      * @return Una coleccion con los socios que se han dado de baja del club
      */
-    public void purge(int mes, int año){
+    public ArrayList<Membership> purge(int mes, int año){
         Iterator<Membership> memb = miembros.iterator();
-       
+        ArrayList<Membership> miembrosEliminados = new ArrayList<>();
         while (memb.hasNext()){
             Membership miembro = memb.next();
             if (miembro.getMonth() == mes && miembro.getYear()== año){
+                miembrosEliminados.add(miembro);
                 memb.remove();
                 numeroDeMiembros--;
             }  
+            
         }
+        return miembrosEliminados;
     }
 }
